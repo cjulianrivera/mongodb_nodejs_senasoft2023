@@ -1,6 +1,11 @@
 const e = require('express');
 const studentService = require('../services/studentService');
 
+/*
+definimos los metodos expuestos en el controlador de estudiantes
+*/
+
+//obtenemos todos los estudiantes
 exports.getAllStudents = async (req, res) => {
     try {
         const students = await studentService.getAllStudents();
@@ -10,6 +15,7 @@ exports.getAllStudents = async (req, res) => {
     }
 };
 
+//obtenemos un estudiante por su id
 exports.getStudentById = async (req, res) => {
     try {
         const student = await studentService.getStudentById(req.params.id);
@@ -19,6 +25,7 @@ exports.getStudentById = async (req, res) => {
     }
 };
 
+//creamos un nuevo estudiante
 exports.createStudent = async (req, res) => {
     try {
         const student = await studentService.createStudent(req.body);
@@ -28,6 +35,7 @@ exports.createStudent = async (req, res) => {
     }
 };
 
+//actualizamos un estudiante
 exports.updateStudent = async (req, res) => {
     try {
         const student = await studentService.updateStudent(req.params.id, req.body);
@@ -37,6 +45,7 @@ exports.updateStudent = async (req, res) => {
     }
 };
 
+//eliminamos un estudiante
 exports.deleteStudent = async (req, res) => {
     try {
         await studentService.deleteStudent(req.params.id);

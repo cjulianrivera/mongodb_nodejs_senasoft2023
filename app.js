@@ -7,9 +7,11 @@ const app = express();
 
 app.use(express.json());
 
+//se deben agregar las rutas de los estudiantes y los cursos
 app.use("/api/students", studentRoutes);
 app.use("/api/courses", courseRoutes);
 
+//configuramos la conexion a mongoDB
 mongoose.connect(
     "",
     {

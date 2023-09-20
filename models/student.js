@@ -1,10 +1,25 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+/*
+definimos el esquema de los estudiantes
+teniendo en cuenta que el id se genera automaticamente en mongoDB
+y los campos obligatorios son el email, el nombre y el apellido
+los demas son opcionales
+*/
 const studentSchema = new Schema({
-    email: String,
-    firstName: String,
-    lastName: String,
+    email: {
+        type: String,
+        required: true
+    },
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
     birthDate: {
         type: Date,
         required: false
@@ -19,12 +34,5 @@ const studentSchema = new Schema({
     }
 });
 
-/*const simpleStudentSchema = new Schema({
-    email: String,
-    firstName: String,
-    lastName: String
-});*/
 
 module.exports = mongoose.model("student", studentSchema);
-//module.exports = mongoose.model("simpleStudent", simpleStudentSchema);
-

@@ -1,5 +1,10 @@
 const courseService = require('../services/courseService');
 
+/*
+definimos los metodos expuestos en el controlador de cursos
+*/
+
+//obtenemos todos los cursos
 exports.getAllCourses = async (req, res) => {
     try {
         const courses = await courseService.getAllCourses();
@@ -9,6 +14,7 @@ exports.getAllCourses = async (req, res) => {
     }
 };
 
+//obtenemos un curso por su id
 exports.getCourseById = async (req, res) => {
     try {
         const course = await courseService.getCourseById(req.params.id);
@@ -18,6 +24,7 @@ exports.getCourseById = async (req, res) => {
     }
 };
 
+//creamos un nuevo curso
 exports.createCourse = async (req, res) => {
     try {
         const course = await courseService.createCourse(req.body);
@@ -27,6 +34,12 @@ exports.createCourse = async (req, res) => {
     }
 };
 
+/*
+asignamos un estudiante a un curso
+para esto recibimos el id del curso y el id del estudiante
+el id del curso lo recibimos como parametro de la ruta
+el id del estudiate lo recibimos como parametro de la consulta
+*/
 exports.AssingCourse = async (req, res) => {
     try {
         const course = await courseService.AssingCourse(req.params.id, req.query.studentId);
