@@ -1,11 +1,10 @@
 # senasoft2023
 
-# senasoft2023
-
 Proyecto MongoDB
-Lenguaje C#
+Lenguaje Node js
 
 Prerequisitos
+
     - Nodejs 
       https://nodejs.org/en/download
 
